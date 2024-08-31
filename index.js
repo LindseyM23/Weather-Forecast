@@ -21,7 +21,7 @@ time.innerHTML = formatDate(date);
 
 
 
-
+console.log(response.data.condition.icon_url)
 //fetching humidity
 let humidity = document.querySelector(".humidity");
 let humidityValue = `${response.data.temperature.humidity}%`;
@@ -31,6 +31,15 @@ humidity.innerHTML = humidityValue;
 let wind = document.querySelector(".wind");
 let windValue = `${response.data.wind.speed} km/h`;
 wind.innerHTML= windValue;
+
+
+
+
+
+//fetching weather icon 
+let icon = document.querySelector(".icon");
+let iconValue = response.data.condition.icon_url;
+icon.innerHTML = `<img src="${iconValue}" alt="weather icon">`
 }
 
 function formatDate(date){
