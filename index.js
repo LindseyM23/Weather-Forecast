@@ -4,6 +4,50 @@ function refreshWeather(response){
     tempValue.innerHTML = Math.round(temp);
     let cityElement = document.querySelector(".weather-app-city");
     cityElement.innerHTML = response.data.city;
+   
+
+    //frtching the description of the weather
+    let description = document.querySelector(".description");
+    let descriptionValue = response.data.condition.description;
+   description.innerHTML =descriptionValue;
+
+
+
+//fetching time of the city
+let date = new Date(response.data.time * 1000 )
+let time = document.querySelector(".time");
+let timeValue = `${date.getHours()}:${date.getMinutes()}`;
+time.innerHTML = formatDate(date);
+
+
+
+
+//fetching humidity
+let humidity = document.querySelector(".humidity");
+let humidityValue = `${response.data.temperature.humidity}%`;
+humidity.innerHTML = humidityValue;
+
+//fetching wind 
+let wind = document.querySelector(".wind");
+let windValue = `${response.data.wind.speed} km/h`;
+wind.innerHTML= windValue;
+}
+
+function formatDate(date){
+
+let minutes = date.getMinutes();
+let hours = date.getHours();
+let days =["Sunday","Monday", "Tuesday", "Wednesday","Thursday","Friday","Saturday"];
+let day = days[date.getDay()];
+
+if (minutes< 10){
+    minutes = `0${minutes}`
+}
+if (hours <10){
+    hours = `0${hours}`
+}
+
+return `${day} ${hours}:${minutes}`;
 }
 
 
