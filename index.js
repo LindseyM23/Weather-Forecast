@@ -5,21 +5,18 @@ function refreshWeather(response){
     let cityElement = document.querySelector(".weather-app-city");
     cityElement.innerHTML = response.data.city;
    
-
     //frtching the description of the weather
     let description = document.querySelector(".description");
     let descriptionValue = response.data.condition.description;
-   description.innerHTML =descriptionValue;
+    description.innerHTML =descriptionValue;
 
-
+console.log(response.data)
 
 //fetching time of the city
 let date = new Date(response.data.time * 1000 )
 let time = document.querySelector(".time");
 let timeValue = `${date.getHours()}:${date.getMinutes()}`;
 time.innerHTML = formatDate(date);
-
-
 
 console.log(response.data.condition.icon_url)
 //fetching humidity
@@ -31,10 +28,6 @@ humidity.innerHTML = humidityValue;
 let wind = document.querySelector(".wind");
 let windValue = `${response.data.wind.speed} km/h`;
 wind.innerHTML= windValue;
-
-
-
-
 
 //fetching weather icon 
 let icon = document.querySelector(".icon");
