@@ -12,21 +12,33 @@
 <body>
     <div class="weather-app">
     <header>
-        <form>
-            <input type="search" placeholder="Enter a city" required/>
-            <input type="submit" value="Search"/>
+        <form class="search-form">
+            <input type="search" placeholder="Enter a city" required class="search-form-input"/>
+            <input type="submit" value="Search" class="search-form-button"/>
         </form>
     </header>
     <main>
+        <div class="weather-app-data">
         <div>
-    <h1>Polokwane</h1>
-   <p>
+    <h1 class="weather-app-city">Polokwane</h1>
+   <p class="weather-app-details">
     Friday 00:56, Partially Cloudy
     <br>
-    Humidity: 66%, Wind 3.13km/h
+    Humidity: <strong>66%</strong>, Wind <strong>3.313km/h</strong>
+
    </p>
-   <div>🌤 12°C</div>
+        </div>
+
+
+   <div class="weather-app-temperature-container" >
+    <div class="weather-app-icon" >🌤</div>
+   <div class="weather-app-temperature-value">12</div>
+   <div class="weather-app-unit">°C</div>
+
 </div>
+        
+        
+     </div>
 
 </main>
 
@@ -35,6 +47,6 @@
     Hosted on 
     <a href="https://shecodes-weather-forecast-lindsey-m.netlify.app/" target="_blank">Netlify</a>
 </footer>
-</div>
+    </div>
 </body>
 </html>
