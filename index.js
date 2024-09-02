@@ -10,7 +10,7 @@ function refreshWeather(response){
     let descriptionValue = response.data.condition.description;
     description.innerHTML =descriptionValue;
 
-console.log(response.data)
+
 
 //fetching time of the city
 let date = new Date(response.data.time * 1000 )
@@ -79,4 +79,31 @@ function handleSearchSubmit(event) {
 
 
   searchCity("Polokwane")
- 
+
+
+
+function displayForecast() {
+    let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+    let forecastHtml = "";
+  
+    days.forEach(function (day) {
+      forecastHtml =
+        forecastHtml +
+        `
+        <div class="weather-forecast-day">
+          <div class="weather-forecast-date">${day}</div>
+          <div class="weather-forecast-icon">🌤️</div>
+          <div class="weather-forecast-temperatures">
+            <div class="weather-forecast-temperature">
+              <strong>15º</strong>
+            </div>
+            <div class="weather-forecast-temperature">9º</div>
+          </div>
+        </div>
+      `;
+    });
+  
+    let forecastElement = document.querySelector("#forecast");
+    forecastElement.innerHTML = forecastHtml;
+  }
+displayForecast()
