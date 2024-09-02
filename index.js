@@ -33,6 +33,9 @@ wind.innerHTML= windValue;
 let icon = document.querySelector(".icon");
 let iconValue = response.data.condition.icon_url;
 icon.innerHTML = `<img src="${iconValue}" alt="weather icon">`
+
+
+getForecast(response.data.city);
 }
 
 function formatDate(date){
@@ -79,13 +82,44 @@ function handleSearchSubmit(event) {
 
 
   searchCity("Polokwane")
+  getForecast("Polokwane")
 
 
 
-function displayForecast() {
+
+
+
+function getForecast(city){
+    let apiKey="f6798d1od35e6tf3299b1b04daacc83c"
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=`;
+    axios(apiUrl).then(displayForecast);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function displayForecast(response) {
+
     let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
-    let forecastHtml = "";
-  
+    let forecastHtml = ""
+    
     days.forEach(function (day) {
       forecastHtml =
         forecastHtml +
